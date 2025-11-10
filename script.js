@@ -62,7 +62,7 @@ function getWeather() {
       } else if (weatherCondition.includes('thunder')) {
         background.style.backgroundImage = "url('images/thunder.jpg')";
       } else if (weatherCondition.includes('haze')) {
-        background.style.backgroundImage = "url('images/haze.jpg')";
+        background.style.backgroundImage = "url('images/haze.webp')";
       } else {
         background.style.backgroundImage = "url('images/default.jpg')";
       }
