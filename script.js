@@ -35,7 +35,7 @@ function getWeather() {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      if (data.cod === '404') {
+      if (data.cod === 404) {
         alert('❌ City not found. Please check spelling.');
         return;
       }
@@ -46,6 +46,7 @@ function getWeather() {
       description.textContent = data.weather[0].description;
 
       const weatherCondition = data.weather[0].description.toLowerCase();
+
       if (weatherCondition.includes('rain')) {
         background.style.backgroundImage = "url('images/rain.jpg')";
       } else if (weatherCondition.includes('clear')) {
@@ -61,7 +62,7 @@ function getWeather() {
       } else if (weatherCondition.includes('thunder')) {
         background.style.backgroundImage = "url('images/thunder.jpg')";
       } else if (weatherCondition.includes('haze')) {
-        background.style.backgroundImage = "url('images/haze.webp')";
+        background.style.backgroundImage = "url('images/haze.jpg')";
       } else {
         background.style.backgroundImage = "url('images/default.jpg')";
       }
