@@ -45,26 +45,25 @@ function getWeather() {
       temperature.textContent = `${data.main.temp} °C`;
       description.textContent = data.weather[0].description;
 
-      // 🌈 Background Change
       const weatherCondition = data.weather[0].description.toLowerCase();
       if (weatherCondition.includes('rain')) {
-        background.style.backgroundImage = "url('rain.jpg')";
+        background.style.backgroundImage = "url('images/rain.jpg')";
       } else if (weatherCondition.includes('clear')) {
-        background.style.backgroundImage = "url('clear.jpg')";
+        background.style.backgroundImage = "url('imagesclear.jpg')";
       } else if (weatherCondition.includes('cloud')) {
-        background.style.backgroundImage = "url('cloudy.jpg')";
+        background.style.backgroundImage = "url('images/cloudy.jpg')";
       } else if (weatherCondition.includes('snow')) {
-        background.style.backgroundImage = "url('snow.jpg')";
+        background.style.backgroundImage = "url('images/snow.jpg')";
       } else if (weatherCondition.includes('smoke')) {
-        background.style.backgroundImage = "url('smoke.jpg')";
+        background.style.backgroundImage = "url('images/smoke.jpg')";
       } else if (weatherCondition.includes('fog')) {
-        background.style.backgroundImage = "url('fog.jpg')";
+        background.style.backgroundImage = "url('images/fog.jpg')";
       } else if (weatherCondition.includes('thunder')) {
-        background.style.backgroundImage = "url('thunder.jpg')";
+        background.style.backgroundImage = "url('imagesthunder.jpg')";
       } else if (weatherCondition.includes('haze')) {
-        background.style.backgroundImage = "url('haze.jpg')";
+        background.style.backgroundImage = "url('images/haze.jpg')";
       } else {
-        background.style.backgroundImage = "url('default.jpg')";
+        background.style.backgroundImage = "url('images/default.jpg')";
       }
     })
     .catch(err => {
