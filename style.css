@@ -1,0 +1,201 @@
+/* General Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Background Image */
+.background-image {
+  background: url('welcome.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Top Bar */
+.top-right {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.current-datetime {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.profile img:hover {
+  transform: scale(1.05);
+  border-color: #fff;
+}
+
+/* Main Weather Card */
+.weather-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  width: 800px;
+  max-width: 90%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.8s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Title */
+.app-title {
+  font-size: 2.9rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  background: linear-gradient(50deg, #0a0f24, #1a1f3b, #3b3f8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.search-input {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 80%;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: black;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+  border-color: #8fc9ff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-btn {
+  background: linear-gradient(135deg, #6fb1fc, #4364f7);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: linear-gradient(135deg, #5a9ffb, #334cf5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(67, 100, 247, 0.4);
+}
+
+/* Weather Info Boxes */
+.weather-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.weather-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.weather-box:hover {
+  transform: translateY(-5px);
+}
+
+.city-box .city-name {
+  color: #000;
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.temp-box .temperature {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.desc-box .description {
+  color: #000;
+  font-size: 1.9rem;
+  text-transform: capitalize;
+  opacity: 0.9;
+  font-weight: bold;
+    font-weight: 600;
+
+
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .weather-info {
+    flex-direction: column;
+  }
+  .top-right {
+    gap: 15px;
+    font-size: 0.9rem;
+  }
+  .profile img {
+    width: 40px;
+    height: 40px;
+  }
+}

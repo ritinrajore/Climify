@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climify</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="weather-icon.png" />
+</head>
+<body>
+  <div class="background-image default-bg">
+    <div class="top-right">
+      <div class="current-datetime">
+        <span class="current-time">--:--</span> |
+        <span class="current-date">--/--/----</span>
+      </div>
+      <div class="profile">
+        <img src="profile.jpeg" alt="User profile picture" />
+      </div>
+    </div>
+
+    <div class="weather-card">
+      <h1 class="app-title">Climify</h1>
+
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Enter city name..." />
+        <button class="search-btn">Search</button>
+      </div>
+      
+      <div class="weather-info">
+        <div class="weather-box city-box">
+          <h2 class="city-name">City</h2>
+        </div>
+
+        <div class="weather-box temp-box">
+          <h3 class="temperature">-- °C</h3>
+        </div>
+
+        <div class="weather-box desc-box">
+          <p class="description">Description</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
