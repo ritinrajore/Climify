@@ -49,7 +49,7 @@ function getWeather() {
       if (weatherCondition.includes('rain')) {
         background.style.backgroundImage = "url('images/rain.jpg')";
       } else if (weatherCondition.includes('clear')) {
-        background.style.backgroundImage = "url('imagesclear.jpg')";
+        background.style.backgroundImage = "url('images/clear.jpg')";
       } else if (weatherCondition.includes('cloud')) {
         background.style.backgroundImage = "url('images/cloudy.jpg')";
       } else if (weatherCondition.includes('snow')) {
@@ -59,9 +59,9 @@ function getWeather() {
       } else if (weatherCondition.includes('fog')) {
         background.style.backgroundImage = "url('images/fog.jpg')";
       } else if (weatherCondition.includes('thunder')) {
-        background.style.backgroundImage = "url('imagesthunder.jpg')";
+        background.style.backgroundImage = "url('images/thunder.jpg')";
       } else if (weatherCondition.includes('haze')) {
-        background.style.backgroundImage = "url('images/haze.jpg')";
+        background.style.backgroundImage = "url('images/haze.webp')";
       } else {
         background.style.backgroundImage = "url('images/default.jpg')";
       }
