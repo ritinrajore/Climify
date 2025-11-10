@@ -9,22 +9,31 @@ const dateElement = document.querySelector('.current-date');
 
 const apiKey = 'ad70950867164ab9276c53f6aafe2443';
 
-// ⏰ Update Time + Date
+/* 🕒 Update Time and Date */
 function updateTime() {
   const now = new Date();
   const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const dateString = now.toLocaleDateString([], { day: '2-digit', month: 'short', year: 'numeric' });
 
   timeElement.textContent = timeString;
-  dateElement.textContent = dateString;
+  dateElement.textContent = `| ${dateString}`;
 }
+
 setInterval(updateTime, 1000);
 updateTime();
 
-// 🌦️ Weather Fetch Function
+/* 🎨 Smooth Background Change */
+function changeBackground(imagePath) {
+  background.style.opacity = 0;
+  setTimeout(() => {
+    background.style.backgroundImage = `url('${imagePath}')`;
+    background.style.opacity = 1;
+  }, 400);
+}
+
+/* 🌦 Fetch Weather Function */
 function getWeather() {
   const city = input.value.trim();
-
   if (city === '') {
     alert('⚠️ Please enter a city name!');
     return;
@@ -35,12 +44,11 @@ function getWeather() {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      if (data.cod === 404) {
+      if (data.cod === '404' || data.cod === 404) {
         alert('❌ City not found. Please check spelling.');
         return;
       }
 
-      // ✅ Update UI
       cityName.textContent = data.name;
       temperature.textContent = `${data.main.temp} °C`;
       description.textContent = data.weather[0].description;
@@ -48,36 +56,36 @@ function getWeather() {
       const weatherCondition = data.weather[0].description.toLowerCase();
 
       if (weatherCondition.includes('rain')) {
-        background.style.backgroundImage = "url('images/rain.jpg')";
+        changeBackground('images/rain.jpg');
       } else if (weatherCondition.includes('clear')) {
-        background.style.backgroundImage = "url('images/clear.jpg')";
+        changeBackground('images/clear.jpg');
       } else if (weatherCondition.includes('cloud')) {
-        background.style.backgroundImage = "url('images/cloudy.jpg')";
+        changeBackground('images/cloudy.jpg');
       } else if (weatherCondition.includes('snow')) {
-        background.style.backgroundImage = "url('images/snow.jpg')";
+        changeBackground('images/snow.jpg');
       } else if (weatherCondition.includes('smoke')) {
-        background.style.backgroundImage = "url('images/smoke.jpg')";
+        changeBackground('images/smoke.jpg');
       } else if (weatherCondition.includes('fog')) {
-        background.style.backgroundImage = "url('images/fog.jpg')";
+        changeBackground('images/fog.jpg');
       } else if (weatherCondition.includes('thunder')) {
-        background.style.backgroundImage = "url('images/thunder.jpg')";
+        changeBackground('images/thunder.jpg');
       } else if (weatherCondition.includes('haze')) {
-        background.style.backgroundImage = "url('images/haze.webp')";
+        changeBackground('images/haze.webp');
       } else {
-        background.style.backgroundImage = "url('images/default.jpg')";
+        changeBackground('images/default.jpg');
       }
     })
     .catch(err => {
-      alert('⚠️ Error fetching weather data. Try again later.');
-      console.log('Error fetching weather data:', err);
+      alert('⚠️ Error fetching weather data. Please try again later.');
+      console.error('Error fetching weather data:', err);
     });
 }
 
-// 🖱️ Search button click
+/* 🖱 Button Click */
 button.addEventListener('click', getWeather);
 
-// ⌨️ Trigger search when pressing "Enter"
-input.addEventListener('keypress', (e) => {
+/* ⌨ Press Enter */
+input.addEventListener('keypress', e => {
   if (e.key === 'Enter') {
     getWeather();
   }
